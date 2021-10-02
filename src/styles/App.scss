@@ -1,0 +1,221 @@
+*,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.App {
+  color: white;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b2b2b;
+}
+.html {
+  font-size: 62.5%;
+}
+.main {
+  width: 30.5rem;
+  height: 90%;
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.add-todo {
+  margin-top: 3rem;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 0;
+  transition: all 0.3s;
+  .add-todo__text {
+    border-radius: 5px;
+    width: 70%;
+    height: 100%;
+    padding: 1rem;
+    &:focus {
+      outline: none !important;
+    }
+  }
+  .add-todo__btn {
+    margin-left: 0.5rem;
+    width: 3rem;
+    height: 90%;
+    border-radius: 5px;
+    background-color: #ffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-width: 0;
+    text-align: center;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    .fa-check {
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.4);
+    }
+    .fa-plus {
+      font-size: 150%;
+    }
+    .add-icon {
+      color: black;
+      margin-bottom: 6px;
+    }
+  }
+}
+.list-todo-content {
+  height: 80%;
+  width: 90%;
+  margin-top: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 87px;
+  padding-left: 107px;
+  box-sizing: content-box;
+  .content {
+    width: 100%;
+    height: 5rem;
+    margin: 2rem 0;
+    border: 1px solid;
+    border-radius: 16px 16px 16px 16px;
+    overflow: hidden;
+    // background-color: tomato;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .content_text {
+      max-width: 70%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #ffff;
+    }
+    .date-published {
+      width: 2.5rem;
+      height: 100%;
+      background-color: #ffff;
+      color: black;
+      // background: radial-gradient(
+      //   circle,
+      //   rgba(245, 108, 12, 1) 0%,
+      //   rgba(251, 142, 9, 1) 100%
+      // );
+      border-radius: 15px 0 0 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: lighter;
+    }
+    .control {
+      height: 100%;
+      width: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .btn {
+        font-size: 1.3rem;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+#app-title {
+  margin-top: 0;
+  font-weight: lighter;
+}
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .editing-frame {
+    z-index: 3;
+    width: 30rem;
+    height: 50%;
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .edit-box {
+      resize: none;
+      margin-top: 15px;
+      width: 80%;
+      height: 70%;
+      background-color: inherit;
+      color: #ffff;
+      padding-top: 1rem;
+      border-width: 0;
+      &:focus {
+        outline: none;
+      }
+    }
+    .control {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .edit-btn,
+      .cancel-btn {
+        color: black;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 5px;
+        background-color: #ffff;
+        cursor: pointer;
+        transition: all 0.2s;
+        border-width: 0;
+        text-align: center;
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+        .fa-check {
+          font-size: 1.2rem;
+        }
+        .add-icon {
+          padding-bottom: 0.5rem;
+        }
+      }
+      .cancel-btn {
+        font-size: 2rem;
+        padding-bottom: 0.4rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 46.1875em) {
+  .main {
+    width: 80%;
+  }
+}
