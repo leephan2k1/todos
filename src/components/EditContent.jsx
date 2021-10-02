@@ -8,7 +8,7 @@ class EditContent extends React.Component {
     };
   }
   handleOnChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value) {
       this.setState({
         onChange: true,
@@ -26,7 +26,7 @@ class EditContent extends React.Component {
         id: this.props.data?.id,
         title: this.state.content,
       });
-      console.log(this.state.content);
+      // console.log(this.state.content);
       this.handleCancel();
     } else {
       this.handleCancel();

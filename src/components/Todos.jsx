@@ -15,6 +15,19 @@ class Todos extends React.Component {
       editId: "",
     };
   }
+  componentDidUpdate() {
+    localStorage.setItem("state", JSON.stringify(this.state));
+  }
+  componentDidMount() {
+    if (localStorage.getItem("state")) {
+      // console.log(localStorage.getItem("state"));
+      const { idNumber, listTodo } = JSON.parse(localStorage.getItem("state"));
+      this.setState({
+        idNumber: idNumber,
+        listTodo: listTodo,
+      });
+    }
+  }
   addData = (titleContent) => {
     let idNum = this.state.idNumber;
     idNum++;
@@ -52,9 +65,10 @@ class Todos extends React.Component {
       listTodo: tempList,
     });
   };
-  render() {
+  render = () => {
     const { listTodo } = this.state;
 
+    // const { idNumberOdd, listTodoOdd } = localStorage.getItem("state");
     return (
       <div className="main">
         {this.state.isEditing ? (
@@ -84,7 +98,7 @@ class Todos extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default Todos;
