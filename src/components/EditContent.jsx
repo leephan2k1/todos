@@ -25,6 +25,9 @@ class EditContent extends React.Component {
       this.props.updateData({
         id: this.props.data?.id,
         title: this.state.content,
+        dayPublished: this.props.data?.dayPublished,
+        monthPublished: this.props.data?.monthPublished,
+        yearPublished: this.props.data?.yearPublished,
       });
       // console.log(this.state.content);
       this.handleCancel();

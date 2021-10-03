@@ -38,6 +38,9 @@ class Todos extends React.Component {
         {
           id: `todo` + idNum,
           title: titleContent,
+          dayPublished: new Date().getDate(),
+          monthPublished: new Date().getMonth(),
+          yearPublished: new Date().getFullYear(),
         },
       ],
     });

@@ -24,13 +24,12 @@ class Content extends React.Component {
     this.props.editData({ isEditing: true, data: item });
   };
   render() {
-    // console.log(">>>Check index color: ", this.props.colorIndex);
     return (
       <div className="content">
         <div className="date-published">
-          <div>{new Date().getDay()}</div>
-          <div>{new Date().getMonth()}</div>
-          <div>{new Date().getFullYear()}</div>
+          <div>{this.props.item?.datePublished?.dayPublished}</div>
+          <div>{this.props.item?.datePublished?.monthPublished}</div>
+          <div>{this.props.item?.datePublished?.yearPublished}</div>
         </div>
         <div className="content_text">{this.props.item.title}</div>
         <div className="control">
