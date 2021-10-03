@@ -1,0 +1,38 @@
+@mixin flexCenter(
+  $flexDirection: row,
+  $justifyContent: center,
+  $alignItems: center
+) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+@mixin size($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+@mixin colors($textColor: #0000, $backgroundColor: #ffff) {
+  color: $textColor;
+  background-color: $backgroundColor;
+}
+@mixin sizeLimit(
+  $maxWidth: none,
+  $maxHeight: none,
+  $minWidth: none,
+  $minHeight: none
+) {
+  max-width: $maxWidth;
+  max-height: $maxHeight;
+  min-width: $minWidth;
+  min-height: $minHeight;
+}
+@mixin textOverflow(
+  $overflow: hidden,
+  $whiteSpace: nowrap,
+  $textOverflow: ellipsis
+) {
+  overflow: $overflow;
+  white-space: $whiteSpace;
+  text-overflow: $textOverflow;
+}

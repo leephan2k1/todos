@@ -1,3 +1,4 @@
+@import "./mixins";
 *,
 body {
   box-sizing: border-box;
@@ -5,43 +6,30 @@ body {
   padding: 0;
 }
 .App {
-  color: white;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: #2b2b2b;
+  @include size(100vw, 100vh);
+  @include flexCenter(column);
+  @include colors(#ffff, #2b2b2b);
 }
 .html {
   font-size: 62.5%;
 }
 .main {
-  width: 30.5rem;
-  height: 90%;
-  background-color: #1f1f1f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include size(30.5rem, 90%);
+  @include flexCenter(column);
+  @include colors(#ffff, #1f1f1f);
   font-size: 1rem;
   overflow: hidden;
   border-radius: 10px;
 }
 .add-todo {
   margin-top: 3rem;
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include size(100%, 3rem);
+  @include flexCenter();
   border-width: 0;
   transition: all 0.3s;
   .add-todo__text {
     border-radius: 5px;
-    width: 70%;
-    height: 100%;
+    @include size(70%, 100%);
     padding: 1rem;
     &:focus {
       outline: none !important;
@@ -49,19 +37,15 @@ body {
   }
   .add-todo__btn {
     margin-left: 0.5rem;
-    width: 3rem;
-    height: 90%;
+    @include size(3rem, 90%);
     border-radius: 5px;
-    background-color: #ffff;
+    @include colors(black, #ffff);
     cursor: pointer;
     transition: all 0.2s;
     border-width: 0;
     text-align: center;
     font-size: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
+    @include flexCenter(column);
     .fa-check {
       font-size: 1.2rem;
     }
@@ -79,8 +63,7 @@ body {
   }
 }
 .list-todo-content {
-  height: 80%;
-  width: 90%;
+  @include size(90%, 80%);
   margin-top: 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -88,47 +71,28 @@ body {
   padding-left: 107px;
   box-sizing: content-box;
   .content {
-    width: 100%;
-    height: 5rem;
+    @include size(100%, 5rem);
     margin: 2rem 0;
     border: 1px solid;
     border-radius: 16px 16px 16px 16px;
     overflow: hidden;
-    // background-color: tomato;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexCenter(row, space-between);
     .content_text {
-      max-width: 70%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      @include sizeLimit(70%);
+      @include textOverflow();
       color: #ffff;
     }
     .date-published {
-      width: 2.5rem;
-      height: 100%;
-      background-color: #ffff;
-      color: black;
-      // background: radial-gradient(
-      //   circle,
-      //   rgba(245, 108, 12, 1) 0%,
-      //   rgba(251, 142, 9, 1) 100%
-      // );
+      @include size(2.5rem, 100%);
+      @include colors(black, #ffff);
       border-radius: 15px 0 0 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @include flexCenter(column, center);
       font-size: 0.8rem;
       font-weight: lighter;
     }
     .control {
-      height: 100%;
-      width: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      @include size(2rem, 100%);
+      @include flexCenter(column, space-around);
       .btn {
         font-size: 1.3rem;
         &:hover {
@@ -144,35 +108,25 @@ body {
 }
 #overlay {
   position: fixed; /* Sit on top of the page content */
-  display: block; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  @include size(100%, 100%);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter();
   .editing-frame {
     z-index: 3;
-    width: 30rem;
-    height: 50%;
+    @include size(30rem, 50%);
     background-color: #1f1f1f;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flexCenter(column);
     .edit-box {
       resize: none;
       margin-top: 15px;
-      width: 80%;
-      height: 70%;
-      background-color: inherit;
-      color: #ffff;
+      @include size(80%, 70%);
+      @include colors(#ffff, inherit);
       padding-top: 1rem;
       border-width: 0;
       &:focus {
@@ -180,25 +134,19 @@ body {
       }
     }
     .control {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include size(100%);
+      @include flexCenter();
       .edit-btn,
       .cancel-btn {
-        color: black;
-        width: 3rem;
-        height: 3rem;
+        @include size(3rem, 3rem);
         border-radius: 5px;
-        background-color: #ffff;
+        @include colors(black, #ffff);
         cursor: pointer;
         transition: all 0.2s;
         border-width: 0;
         text-align: center;
         font-size: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexCenter();
         margin: 1rem;
         .fa-check {
           font-size: 1.2rem;
