@@ -27,9 +27,9 @@ class Content extends React.Component {
     return (
       <div className="content">
         <div className="date-published">
-          <div>{this.props.item?.datePublished?.dayPublished}</div>
-          <div>{this.props.item?.datePublished?.monthPublished}</div>
-          <div>{this.props.item?.datePublished?.yearPublished}</div>
+          <div>{this.props.item?.dayPublished}</div>
+          <div>{this.props.item?.monthPublished}</div>
+          <div>{this.props.item?.yearPublished}</div>
         </div>
         <div className="content_text">{this.props.item.title}</div>
         <div className="control">
